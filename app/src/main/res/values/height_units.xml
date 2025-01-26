@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="height_units">
+        <item name="cm">cm</item>
+        <item name="m">m</item>
+        <item name="fni">ft, in</item>
+    </string-array>
+</resources>

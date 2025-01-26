@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.iid2024.healthmonitor.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/home_to_record"
+            app:destination="@id/nav_record"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/home_to_bmi"
+            app:destination="@id/nav_bmi"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/home_to_storage"
+            app:destination="@id/storageFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/fade_out"/>
+
+        <action
+            android:id="@+id/action_nav_home_to_healthyLivingFragment"
+            app:destination="@id/healthyLivingFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/fade_out"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_about"
+        android:name="com.iid2024.healthmonitor.ui.gallery.GalleryFragment"
+        android:label="About"
+        tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/nav_feedback"
+        android:name="com.iid2024.healthmonitor.ui.slideshow.SlideshowFragment"
+        android:label="Feedback"
+        tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/nav_record"
+        android:name="com.iid2024.healthmonitor.ui.record.RecordFragment"
+        android:label="Record"
+        tools:layout="@layout/fragment_record" >
+        <action
+            android:id="@+id/record_to_anterior"
+            app:destination="@id/nav_LA"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_nav_record_to_posteriorFragment"
+            app:destination="@id/posteriorFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/fade_out"/>
+        <action
+            android:id="@+id/action_nav_record_to_heartFragment"
+            app:destination="@id/heartFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_LA"
+        android:name="com.iid2024.healthmonitor.ui.record.lungsanterior.LAFragment"
+        android:label="Record"
+        tools:layout="@layout/fragment_anterior">
+        <action
+            android:id="@+id/action_nav_LA_to_nav_voice_recorder"
+            app:destination="@id/nav_voice_recorder"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_voice_recorder"
+        android:name="com.iid2024.healthmonitor.ui.record.voicerecorder.VoiceRecorderFragment"
+        android:label="Record"
+        tools:layout="@layout/fragment_voice_recorder" />
+    <fragment
+        android:id="@+id/nav_bmi"
+        android:name="com.iid2024.healthmonitor.ui.bmi.BmiFragment"
+        android:label="BMI Calculator"
+        tools:layout="@layout/fragment_bmi" />
+    <fragment
+        android:id="@+id/storageFragment"
+        android:name="com.iid2024.healthmonitor.ui.storage.StorageFragment"
+        android:label="Storage"
+        tools:layout="@layout/fragment_storage">
+        <action
+            android:id="@+id/storage_to_player"
+            app:destination="@id/playerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewRecordFragment"
+        android:name="com.iid2024.healthmonitor.ui.record.ViewRecordFragment"
+        android:label="Storage"
+        tools:layout="@layout/fragment_view_record" />
+    <fragment
+        android:id="@+id/storageButtonFragment"
+        android:name="com.iid2024.healthmonitor.ui.storage.StorageButtonFragment"
+        android:label="fragment_storage_button"
+        tools:layout="@layout/fragment_storage_button" />
+    <fragment
+        android:id="@+id/playerFragment"
+        android:name="com.iid2024.healthmonitor.ui.record.PlayerFragment"
+        android:label="Player"
+        tools:layout="@layout/fragment_player" />
+    <fragment
+        android:id="@+id/healthyLivingFragment"
+        android:name="com.iid2024.healthmonitor.ui.healthy.HealthyLivingFragment"
+        android:label="Healthy Living"
+        tools:layout="@layout/fragment_healthy_living">
+        <action
+            android:id="@+id/action_healthyLivingFragment_to_workoutFragment"
+            app:destination="@id/workoutFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/fade_out"/>
+        <action
+            android:id="@+id/action_healthyLivingFragment_to_mealFragment"
+            app:destination="@id/mealFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/fade_out"/>
+    </fragment>
+    <fragment
+        android:id="@+id/workoutFragment"
+        android:name="com.iid2024.healthmonitor.ui.healthy.WorkoutFragment"
+        android:label="Workout"
+        tools:layout="@layout/fragment_workout">
+        <action
+            android:id="@+id/action_workoutFragment_to_workoutContentFragment"
+            app:destination="@id/workoutContentFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/fade_out"/>
+    </fragment>
+    <fragment
+        android:id="@+id/workoutContentFragment"
+        android:name="com.iid2024.healthmonitor.ui.healthy.WorkoutContentFragment"
+        android:label="Workout"
+        tools:layout="@layout/fragment_workout_content" />
+    <fragment
+        android:id="@+id/mealFragment"
+        android:name="com.iid2024.healthmonitor.ui.healthy.MealFragment"
+        android:label="Healhy Meal"
+        tools:layout="@layout/fragment_meal">
+        <action
+            android:id="@+id/action_mealFragment_to_mealContentFragment"
+            app:destination="@id/mealContentFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/fade_out"/>
+    </fragment>
+    <fragment
+        android:id="@+id/mealContentFragment"
+        android:name="com.iid2024.healthmonitor.ui.healthy.MealContentFragment"
+        android:label="Healthy Meal"
+        tools:layout="@layout/fragment_meal_content" />
+    <fragment
+        android:id="@+id/posteriorFragment"
+        android:name="com.iid2024.healthmonitor.ui.record.lungsanterior.PosteriorFragment"
+        android:label="Record"
+        tools:layout="@layout/fragment_posterior" />
+    <fragment
+        android:id="@+id/nav_chat"
+        android:name="com.iid2024.healthmonitor.ui.slideshow.ChatFragment"
+        android:label="Chatbot"
+        tools:layout="@layout/fragment_chat" />
+    <fragment
+        android:id="@+id/heartFragment"
+        android:name="com.iid2024.healthmonitor.ui.record.lungsanterior.HeartFragment"
+        android:label="fragment_heart"
+        tools:layout="@layout/fragment_heart" />
+</navigation>
