@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.iid2024.healthmonitor.MainActivity
 import com.iid2024.healthmonitor.R
 import com.iid2024.healthmonitor.databinding.FragmentViewRecordBinding
 import com.iid2024.healthmonitor.packages.filemanager.FileWriter
@@ -64,6 +65,9 @@ class ViewRecordFragment : Fragment() {
         binding.button.text = "START"
         time = 0
         binding.recordLengthText.text = "00:00";
+
+        val activity = requireActivity() as MainActivity;
+        activity.navigateTo(R.id.diagnosisFragment)
     }
 
     override fun onCreateView(

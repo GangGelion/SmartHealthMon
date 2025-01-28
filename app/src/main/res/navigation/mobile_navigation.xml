@@ -87,6 +87,9 @@
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@android:anim/slide_in_left"
             app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_nav_LA_to_diagnosisFragment"
+            app:destination="@id/diagnosisFragment" />
     </fragment>
     <fragment
         android:id="@+id/nav_voice_recorder"
@@ -121,7 +124,11 @@
         android:id="@+id/playerFragment"
         android:name="com.iid2024.healthmonitor.ui.record.PlayerFragment"
         android:label="Player"
-        tools:layout="@layout/fragment_player" />
+        tools:layout="@layout/fragment_player" >
+        <action
+            android:id="@+id/action_playerFragment_to_diagnosisFragment"
+            app:destination="@id/diagnosisFragment" />
+    </fragment>
     <fragment
         android:id="@+id/healthyLivingFragment"
         android:name="com.iid2024.healthmonitor.ui.healthy.HealthyLivingFragment"
@@ -182,7 +189,11 @@
         android:id="@+id/posteriorFragment"
         android:name="com.iid2024.healthmonitor.ui.record.lungsanterior.PosteriorFragment"
         android:label="Record"
-        tools:layout="@layout/fragment_posterior" />
+        tools:layout="@layout/fragment_posterior" >
+        <action
+            android:id="@+id/action_posteriorFragment_to_diagnosisFragment"
+            app:destination="@id/diagnosisFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_chat"
         android:name="com.iid2024.healthmonitor.ui.slideshow.ChatFragment"
@@ -193,4 +204,14 @@
         android:name="com.iid2024.healthmonitor.ui.record.lungsanterior.HeartFragment"
         android:label="fragment_heart"
         tools:layout="@layout/fragment_heart" />
+    <fragment
+        android:id="@+id/diagnosisFragment"
+        android:name="com.iid2024.healthmonitor.ui.storage.DiagnosisFragment"
+        android:label="fragment_diagnosis"
+        tools:layout="@layout/fragment_diagnosis" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.iid2024.healthmonitor.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
 </navigation>

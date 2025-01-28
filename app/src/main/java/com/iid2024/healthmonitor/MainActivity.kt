@@ -4,11 +4,13 @@ import android.app.Activity
 import android.os.Bundle
 import android.view.Menu
 import android.Manifest
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Environment
 import android.provider.Settings
+import android.view.MenuItem
 import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -107,6 +109,19 @@ class MainActivity : AppCompatActivity() {
         findNavController(R.id.nav_host_fragment_content_main).navigate(layout, args)
     }
 
+    fun setSettings(name: String, value: String) {
+        val currentPref = this.getSharedPreferences("breadbox", Context.MODE_PRIVATE)
+        val editPref = currentPref.edit()
+        editPref.putString(name, value)
+        editPref.apply()
+    }
+
+    fun getSettings(name: String) : String? {
+        val currentPref = this.getSharedPreferences("breadbox", Context.MODE_PRIVATE)
+        val editPref = currentPref.getString(name, null)
+        return editPref
+    }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main, menu)
@@ -116,5 +131,13 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId;
+        if (id == R.id.action_settings) {
+            this.navigateTo(R.id.settingsFragment)
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
